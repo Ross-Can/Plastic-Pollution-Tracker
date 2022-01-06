@@ -22,7 +22,7 @@ In the **version 0.1** folder is the original site.
 
 ## Installation
 
-1. Click [here](https://github.com/Ross-Can/Stamina-Challenge/archive/refs/heads/main.zip) to install the current version of the stamina challenge.
+1. Click [here](https://github.com/Ross-Can/Plastic-Pollution-Tracker/archive/refs/heads/main.zip) to install the current version of the stamina challenge.
 2. Uncompress the zip file
 3. Double click/open the **v 0.1** folder to open access the original site.
 4. Double click/open the **home_page.html** file to open my program in your default browser.
