@@ -7,7 +7,7 @@ $("#mapButton").click(function () {
   goToWebPage("map.html");
 });
 
-var continent;
+var ocean;
 //function navigateTo(location){
 //var loc = location.replace(" ", "+")
 //var google_loc = "https://www.google.com/maps/dir/?api=1&destination=" + loc + "&travelmode=walking"
@@ -139,7 +139,7 @@ function lat(item) {
 }
 
 function writeToTable(array) {
-  changeContinent(continent.title, array.length);
+  changeContinent(ocean.title, array.length);
   if (array.length > average - average / 3)
     placeImage(event.clientX, event.clientY, 3);
   else if (array.length > average - (average / 3) * 2)
