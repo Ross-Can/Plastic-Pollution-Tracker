@@ -3,7 +3,7 @@
 PPT displays levels of bottle pollution in Earth's major oceans. These levels are on a scale of 1-3 and are relative to the maximum total of instances found in one ocean. Data is received from ArcGIS api. 
 
 ## Preface
-This project was a quick write up during my last semester in 2021 for fun. The code works great but the presentation can be improved and algorithm can be a lot more efficient so the goal is to fix up the glaring issues.
+This project was a quick write up during my last semester in 2021 for fun. The code works great but the presentation can be improved and the algorithm can be a lot more efficient. Thus, the goal is to fix up the glaring issues.
 
 ## Issues
 * The site is not responsive due to the image map
