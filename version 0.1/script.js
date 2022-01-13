@@ -22,13 +22,13 @@ $("area").click(function () {
 });
 
 function displayInfo(oceanClicked) {
-  if (oceanClicked == "Atlantic Ocean") writeToTable(atlantic);
-  else if (oceanClicked == "Pacific Ocean") writeToTable(pacific);
-  else if (oceanClicked == "Indian Ocean") writeToTable(indian);
-  else if (oceanClicked == "Southern Ocean") writeToTable(southern);
-  else if (oceanClicked == "Arctic Ocean") writeToTable(arctic);
-  else if (oceanClicked == "Mediterranean Sea") writeToTable(maditerranean);
-  else if (oceanClicked == "Baltic Sea") writeToTable(baltic);
+  if (oceanClicked == "Atlantic Ocean") writeToTable(Atlantic);
+  else if (oceanClicked == "Pacific Ocean") writeToTable(Pacific);
+  else if (oceanClicked == "Indian Ocean") writeToTable(Indian);
+  else if (oceanClicked == "Southern Ocean") writeToTable(Southern);
+  else if (oceanClicked == "Arctic Ocean") writeToTable(Arctic);
+  else if (oceanClicked == "Mediterranean Sea") writeToTable(Maditerranean);
+  else if (oceanClicked == "Baltic Sea") writeToTable(Baltic);
 }
 
 function placeImage(left, top, level) {
@@ -59,105 +59,53 @@ function changeContinent(continent_name, amount_found) {
 }
 
 var locationItems = [];
-var atlantic = [];
-var pacific = [];
-var indian = [];
-var arctic = [];
-var maditerranean = [];
-var baltic = [];
-var southern = [];
 var average;
+
+let filter = (loc) => {
+  if (Atlantic.contains(loc)) Atlantic.add(loc);
+  else if (Pacific.contains(loc)) Pacific.add(loc);
+  else if (Indian.contains(loc)) Indian.add(loc);
+  else if (Arctic.contains(loc)) Arctic.add(loc);
+  else if (Baltic.contains(loc)) Baltic.add(loc);
+  else if (Southern.contains(loc)) Southern.add(loc);
+  else if (Mediterranian.contains(loc)) Mediterranian.add(loc);
+};
 
 $.get(
   "https://services6.arcgis.com/C0HVLQJI37vYnazu/arcgis/rest/services/Estimate_of_Plastic_Pollution_in_the_World_s_Oceans_1_01_4_75/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
   function (items) {
     locationItems = items.features;
-    console.log(locationItems[1].attributes.LATITUDE);
-    for (let i = 0; i < locationItems.length; i++) {
-      if (
-        lat(locationItems[i]) > -60.0 &&
-        lat(locationItems[i]) < 68.63 &&
-        lon(locationItems[i]) > -98.05 &&
-        lon(locationItems[i]) < 20.0
-      )
-        atlantic.push(locationItems[i]);
-      else if (
-        lat(locationItems[i]) > -60.0 &&
-          lat(locationItems[i]) < 58.21 &&
-          ((lon(locationItems[i]) > 128.69 &&
-          lon(locationItems[i]) < 180 )||
-        (lon(locationItems[i]) < -67.25 &&
-        lon(locationItems[i]) > -180))
-      )
-        pacific.push(locationItems[i]);
-      else if (
-        lat(locationItems[i]) > -60.0 &&
-        lat(locationItems[i]) < 31.18 &&
-        lon(locationItems[i]) > 20.0 &&
-        lon(locationItems[i]) < 146.89
-      )
-        indian.push(locationItems[i]);
-      else if (
-          lat(locationItems[i]) > 51.14 &&
-          lat(locationItems[i]) < 90.0 &&
-          lon(locationItems[i]) > -180.0 &&
-          lon(locationItems[i]) < 180
-      )
-        arctic.push(locationItems[i]);
-      else if (
-        lat(locationItems[i]) > 30.26 &&
-        lat(locationItems[i]) < 45.78 &&
-        lon(locationItems[i]) > -6.03 &&
-        lon(locationItems[i]) < 36.21
-      )
-        maditerranean.push(locationItems[i]);
-      else if (
-        lat(locationItems[i]) > 52.65 &&
-        lat(locationItems[i]) < 67.08 &&
-        lon(locationItems[i]) > 9.36 &&
-        lon(locationItems[i]) < 37.46
-      )
-        baltic.push(locationItems[i]);
-      else if (
-        lat(locationItems[i]) > -85.56 &&
-        lat(locationItems[i]) < -60.0 &&
-        lon(locationItems[i]) > -180.0 &&
-        lon(locationItems[i]) < 180.0
-      )
-        southern.push(locationItems[i]);
-    }
+
+    locationItems.forEach((loc) => {
+      filter(loc.attributes);
+    });
+
+    console.log("pacific amount: ", Pacific.opMaxLong());
     average = 653;
   }
 );
 
-function lon(item) {
-  return item.attributes.LONGITUDE;
-}
-
-function lat(item) {
-  return item.attributes.LATITUDE;
-}
-
-function writeToTable(array) {
-  changeContinent(ocean.title, array.length);
-  if (array.length > average - average / 3)
+function writeToTable(Ocean) {
+  console.log(Ocean);
+  changeContinent(Ocean.name(), Ocean.coordinateCount());
+  if (Ocean.count > average - average / 3)
     placeImage(event.clientX, event.clientY, 3);
-  else if (array.length > average - (average / 3) * 2)
+  else if (Ocean.count > average - (average / 3) * 2)
     placeImage(event.clientX, event.clientY, 2);
   else placeImage(event.clientX, event.clientY, 1);
   var tableRow = document.getElementById("tableRow");
   tableRow.innerHTML = "";
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < Ocean.count; i++) {
     tableRow.innerHTML +=
       "<tr>" +
       "<th scope='row'>" +
       (i + 1) +
       "</th>" +
       "<td>" +
-      lon(array[i]) +
+      array[i].LONGITUDE +
       "</td>" +
       "<td>" +
-      lat(array[i]) +
+      array[i].LATITUDE +
       "</td>" +
       "</tr>";
   }
