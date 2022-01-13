@@ -82,11 +82,12 @@ $.get(
       )
         atlantic.push(locationItems[i]);
       else if (
-        (lat(locationItems[i]) > -60.0 &&
+        lat(locationItems[i]) > -60.0 &&
           lat(locationItems[i]) < 58.21 &&
-          lon(locationItems[i]) > 128.69 &&
-          lon(locationItems[i]) < 180) ||
-        (lon(locationItems[i]) < -67.25 && lon(locationItems[i]) > -180)
+          ((lon(locationItems[i]) > 128.69 &&
+          lon(locationItems[i]) < 180 )||
+        (lon(locationItems[i]) < -67.25 &&
+        lon(locationItems[i]) > -180))
       )
         pacific.push(locationItems[i]);
       else if (
@@ -97,11 +98,10 @@ $.get(
       )
         indian.push(locationItems[i]);
       else if (
-        (lat(locationItems[i]) > 51.14 &&
+          lat(locationItems[i]) > 51.14 &&
           lat(locationItems[i]) < 90.0 &&
           lon(locationItems[i]) > -180.0 &&
-          lon(locationItems[i]) < 180) ||
-        (lon(locationItems[i]) < 180.0 && lon(locationItems[i]) > -180)
+          lon(locationItems[i]) < 180
       )
         arctic.push(locationItems[i]);
       else if (
