@@ -3,7 +3,7 @@
 PPT displays levels of bottle pollution in Earth's major oceans. These levels are on a scale of 1-3 and are relative to the maximum total of instances found in one ocean. Data is received from ArcGIS api. 
 
 ## Preface
-This project was a quick write up during my last semester in 2021 for fun. The code works great but the presentation can be improved and the algorithm can be a lot more efficient. Thus, the goal is to fix up the glaring issues.
+This project was a quick write up during my last semester in 2021 for fun. The code does its best but the presentation can be improved and the algorithm can be a lot more efficient. Thus, the goal is to fix up the glaring issues.
 
 ## Issues
 * The site is not responsive due to the image map
@@ -11,20 +11,20 @@ This project was a quick write up during my last semester in 2021 for fun. The c
 * Javascript code readability
 * Duplicate calls for library
 * Remakes a table every click
+* Algorithm needs reworking 
+* Find a new map to represent the data set better.
 * I do not like the table ;)
 
 ## Mission
 My mission is to fix these issues and upload a new version for comparison.
 
-When completed it will be found in the **version 1.0** folder.
-
-In the **version 0.1** folder is the original site.
+When completed, it will be found in the releases section with the previous project.
 
 ## Installation
 
-1. Click [here](https://github.com/Ross-Can/Plastic-Pollution-Tracker/archive/refs/heads/main.zip) to install the current version of the stamina challenge.
+1. Click [here](https://github.com/Ross-Can/Plastic-Pollution-Tracker/archive/refs/heads/main.zip) or download the folder below to install  version 1.0.0 of the site.
 2. Uncompress the zip file
-3. Double click/open the **v 0.1** folder to open access the original site.
+3. Double click/open the **v 1.0.0** folder to open access the original site.
 4. Double click/open the **home_page.html** file to open my program in your default browser.
 
 ## Usage
