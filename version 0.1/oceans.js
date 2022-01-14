@@ -5,6 +5,7 @@ class Ocean {
   #coversBothMapEdges = false;
   #mapCoordinates = [];
   #count = 0;
+  #table = "";
 
   constructor(
     name,
@@ -42,9 +43,24 @@ class Ocean {
 
   opMaxLong = () => this.#longitudeRange[3];
 
+  getTable = () => this.#table;
+
   add(coordinates) {
+    if (this.#count < 3) console.log(coordinates);
     this.#mapCoordinates.push(coordinates);
     this.#count++;
+    this.#table +=
+      "<tr>" +
+      "<th scope='row'>" +
+      this.#count +
+      "</th>" +
+      "<td>" +
+      coordinates.LATITUDE +
+      "</td>" +
+      "<td>" +
+      coordinates.LONGITUDE +
+      "</td>" +
+      "</tr>";
   }
 
   coordinateCount() {
