@@ -1,79 +1,81 @@
-.imageBottle{
-	position: absolute;
-	width: 100%;
-    height: 100%;
-    top: 0px;
-    bottom: 0px;
-	z-index: -7;
-	padding: 0;
-	left: 0;
-	margin: 0;
-	background-size: cover;
-
+.imageBottle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  z-index: -7;
+  padding: 0;
+  left: 0;
+  margin: 0;
+  background-size: cover;
 }
 
 #quote {
-	position: absolute;
-	width: 80%;
-	text-align: right;
-	font-size: 60px;
-	top: 20%;
-
+  position: absolute;
+  width: 80%;
+  text-align: right;
+  font-size: 60px;
+  top: 20%;
 }
 
-#author{
-	position: absolute;
-	width: 78%;
-	text-align: right;
-	font-size: 30px;
-	top: 27%;
+#author {
+  position: absolute;
+  width: 78%;
+  text-align: right;
+  font-size: 30px;
+  top: 27%;
 }
 
-#mapButton{
-	background-color: #1d92c5;
-	position: absolute;
-	padding: 14px 40px;
-	border-radius: 8px;
-	font-size: 35px;
-	color: white;
-	top: 35%;
-	left: 1200px;
-	border: 2px solid #1d92c5;
+#mapButton {
+  background-color: #1d92c5;
+  position: absolute;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 35px;
+  color: white;
+  top: 35%;
+  left: 1200px;
+  border: 2px solid #1d92c5;
 }
 
-
-
-#image-map, h1, h5 {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+html,
+body {
+  height: vh;
 }
 
-h1, table, h5 {
-	width: 75%;
-	text-align: center;
+#image-map {
+  margin-left: 0px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  height: vh;
 }
 
-table{
-	margin: auto;
-	padding-top: 10%;
+#image-map {
+}
 
+.data {
+  max-height: vh;
+  margin: auto;
+}
+
+.table {
+  overflow-y: scroll;
+  max-height: 100px;
 }
 
 #map {
-	background-color: #1CABE2;
-	width: 100%;
+  height: vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0px;
 }
 
 #pollutionTable {
-	position: absolute;
-	z-index: 4;
-	width: 15%;
-	top: 5%;
-	left: 90px;
+  position: absolute;
+  z-index: 4;
+  width: 15%;
+  top: 5%;
+  left: 90px;
 }
-
-
-
-
-
