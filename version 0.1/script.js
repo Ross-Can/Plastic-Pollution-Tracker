@@ -19,7 +19,8 @@ let filter = (loc) => {
   else if (Mediterranian.contains(loc)) Mediterranian.add(loc);
 };
 
-$("area").hover(function () {
+$("area").click(function () {
+  console.log("click");
   displayOceanData(this.title);
 });
 

@@ -46,7 +46,6 @@ class Ocean {
   getTable = () => this.#table;
 
   add(coordinates) {
-    if (this.#count < 3) console.log(coordinates);
     this.#mapCoordinates.push(coordinates);
     this.#count++;
     this.#table +=
